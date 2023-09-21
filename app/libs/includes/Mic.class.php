@@ -18,6 +18,11 @@ class Mic
   private $light;
   public $price;
 
+  public static function testFunction()
+  {
+    printf("This is a static function, this can be run without object initialization.");
+  }
+
   public function __construct($brand)
  {
     printf("constructing object...");
@@ -26,6 +31,11 @@ class Mic
   
   public function setLight($light){
    $this->light = $light;
+  }
+
+  public function getBrand()
+  {
+    return $this->brand;
   }
 
   private function getModel()
@@ -42,4 +52,10 @@ class Mic
   {
     return $this->getModel();
   }
+
+  public function __destruct()
+  {
+    printf("Destruct object: brand: $this->brand...");
+  }
+
 }

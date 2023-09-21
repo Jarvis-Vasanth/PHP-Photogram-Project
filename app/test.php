@@ -22,16 +22,19 @@ include 'libs/load.php';
 $mic1 = new Mic("Roda"); //constructing the object
 $mic2 = new Mic("HyperX"); //constructing the object
 
+Mic::testFunction(); //no construction,no distruction;
 
 $mic1->setLight("White");
 $mic2->setLight("Green");
 
-
+printf(ucwords("hyper quad cast"));
 $mic1->setModel("hyper quad cast");
 print("Model of 1st mic is ".$mic1->getModelproxy());
 print("\n".$mic1->getBrand());
 print("\n".$mic2->getBrand());
 
+$conn = Database::getConnection();
+$conn = Database::getConnection();
 
 ?>
 </pre>
