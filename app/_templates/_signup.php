@@ -2,7 +2,7 @@
 
 $signup = false;
 if(isset($_POST['username']) and isset($_POST['password']) and !empty($_POST['password']) and isset($_POST['email_address']) and isset($_POST['phone'])) {
-    $username = $_POST['usernmae'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
     $email = $_POST['email_address'];
     $phone = $_POST['phone'];

@@ -12,7 +12,7 @@ class Session
     }
     public static function destroy()
     {
-        sesssion_destroy();
+        session_destroy();
     }
 
     public static function set($key, $value)
