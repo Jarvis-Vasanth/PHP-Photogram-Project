@@ -21,7 +21,7 @@ class User
         return $error;
     }
     
-    public function __construct($usernmae){
+    public function __construct($username){
         $this->conn = Database::getConnection();
         $this->conn->query();
     }
