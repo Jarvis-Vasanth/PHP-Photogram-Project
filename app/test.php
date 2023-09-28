@@ -2,6 +2,9 @@
 <?php
 include 'libs/load.php';
 
+// $cookie_name = "testscript";
+// $cookie_value = $_SERVER['REQUEST_URI'];
+// setcookie("testcookie","testvalue", time() + (86400 * 30), "/");
 // print("_SERVER \n");
 // print_r($_SERVER);
 // print("_GET \n");
