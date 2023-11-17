@@ -2,7 +2,7 @@
 include 'libs/load.php';
 
 $user = "root";
-$pass = "root";
+$pass = isset($_GET['pass']) ? $_GET['pass'] :'';
 $result = null;
 
 if (isset($_GET['logout'])) {
@@ -14,7 +14,7 @@ if (Session::get('is_loggedin')) {
     print("welcome back, $userdata[username]");
     $result = $userdata;
 } else {
-    print("No Session foung,trying to login now..");
+    print("No Session foung,trying to login now. <br>");
     $result = User::login($user, $pass);
 }
 if ($result) {
@@ -22,7 +22,7 @@ if ($result) {
     Session::set('is_loggedin',true);
     Session::set('session_user', $result);
 } else {
-    echo "Login failed";
+    echo "Login failed, $user <br>";
 }
 echo <<<EOL
 <br><br><a href="logintest.php?logout">logout</a>
