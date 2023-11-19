@@ -35,6 +35,7 @@ $mic1->setModel("hyper quad cast");
 print("Model of 1st mic is ".$mic1->getModelproxy());
 print("\n".$mic1->getBrand());
 print("\n".$mic2->getBrand());
+echo $mic1->getVoltage("hello", array(1,2,3,4,5), new Mic("Bose"));
 
 $conn = Database::getConnection();
 $conn = Database::getConnection();
