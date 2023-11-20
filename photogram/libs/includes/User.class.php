@@ -11,7 +11,7 @@ class User
     {
         $property = preg_replace("/[^0-9a-zA-Z]/", "", substr($name, 3));
         $property = strtolower(preg_replace('/\B([A-Z])/', '_$1', $property));
-        if (substr(name, 0, 3) == "get") {
+        if (substr($name, 0, 3) == "get") {
             return $this->_get_data($property);
         } elseif (substr($name, 0, 3) == "set") {
             return $this->_set_data($property, $arguments[0]);
@@ -89,8 +89,8 @@ class User
         // print($sql);
         $result = $this->conn->query($sql);
         if ($result and $result->num_rows == 1) {
-            // print("Res: ".$result->fetch_assoc()["$var"]); 1
-            return $result->fetch_assoc()["$var"];
+            // print("Res: ".$result->fetch_assoc()["$var"]);
+            return $result->fetch_assoc() ["$var"];
         } else {
             return null;
         }
@@ -123,9 +123,7 @@ class User
         return $this->username;
     }
 
-    public function authenticate() {
-        
-    }
+    public function authenticate() {}
 
     // public function setBio($bio)
     // {
