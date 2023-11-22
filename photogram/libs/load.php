@@ -4,6 +4,7 @@ include_once 'includes/Session.class.php';
 include_once 'includes/Mic.class.php';
 include_once 'includes/Database.class.php';
 include_once 'includes/User.class.php';
+include_once 'include/UserSession.class.php';
 
 global $__site_config;
 //Note: change this path if you run this code outside lab.
