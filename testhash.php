@@ -1,18 +1,19 @@
 <?php
 
-$str = <<<EOL
-No string-to-array function exists because it is not needed. if you referance a string with an offset like
-EOL;
+// $password = isset($_GET['password']) ? $_GET['password']:"RandomPasswordThatIsSecure";
+// echo(md5($password));
 
-echo("Data Length: ".strlen($str)."\n);
+$str = <<<EOL
+No String-to-array function exists because 
+EOL;
 
 $md5 = md5($str);
 $md5len = strlen($md5);
 
-$b64 = base64_encode($str);
-$b64len = strlen($b64);
+// $b64 = base64_encode($str);
+// $b64len = strlen($b64);
 
-echo("MD5: $md5 (Lenght: $md5len)\n");
-echo("Base64: $b64 \n(Lenth: $b64len)\n");
+// echo("MD5:$md5(length: $md5len)<br>");
+// echo("Base64 : $b64 <br>(lenght:$b64len)<br>");
 
- 
+?>

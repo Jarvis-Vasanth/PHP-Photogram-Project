@@ -11,6 +11,7 @@ class User
     {
         $property = preg_replace("/[^0-9a-zA-Z]/", "", substr($name, 3));
         $property = strtolower(preg_replace('/\B([A-Z])/', '_$1', $property));
+        //($property;)
         if (substr($name, 0, 3) == "get") {
             return $this->_get_data($property);
         } elseif (substr($name, 0, 3) == "set") {
@@ -47,9 +48,9 @@ class User
         $query = "SELECT * FROM `auth` WHERE `username` = '$user'";
         $conn = Database::getConnection();
         $result = $conn->query($query);
-        if($result->num_rows == 1) {
+        if($result->num_rows == 1) { //Check if there is exactly one row in the result set.
             $row = $result->fetch_assoc();
-            //    if($row['password'] == $pass) {
+            //    if($row['password'] == $pass) { //Compare the hashed password stored in the database ($row['password])
             if(password_verify($pass, $row['password'])) {
                 return $row['username'];
             } else {
@@ -66,7 +67,6 @@ class User
     {
         //TODO: Write the code to fetch user data from Database for the given username. If username is not present, throw Exception.
         $this->conn = Database::getConnection();
-        //TODO: Change this if username param is an email
         $this->username = $username;
         $this->id = null;
         $sql = "SELECT `id` FROM `auth` WHERE `username` = '$username' OR `id` = '$username' LIMIT 1";
@@ -80,7 +80,7 @@ class User
 
     }
 
-    //this function helps to retrieve data from the database
+    //this function helps to retrieve data from the database private function _get_data($var)
     private function _get_data($var)
     {
         // print("hello $var");

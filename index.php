@@ -1,29 +1,35 @@
 <?php
 include 'libs/load.php';
 ?>
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
+<?php load_template('_head'); ?>
+
 <body>
-	
-<?php load_template('_header'); ?>
-	
+    <?php
+    Session::start();
+    if (Session::get('session_token')) {
+        $token = Session::get('session_token');
+        if (UserSession::authorize($token)) {
+    ?>
 
-	<main>
+            <main>
+                <?php load_template('_calltoaction'); ?>
+                <?php load_template('_photogram'); ?>
+            </main>
 
-		<?php load_template('_calltoaction'); ?>
-
-		<?php load_template('_photogram'); ?>
-		
-		</main>
-
-		<?php load_template('_footer'); ?>
-
-
-			<script src="<?=get_config('base_path')?>assets/dist/js/bootstrap.bundle.min.js"></script>
-
-
+            <?php load_template('_footer');
+        }
+    } else {
+        ?>
+        <script>
+            window.location.href = "<?= get_config('base_path') ?>login.php"
+        </script>
+    <?php
+    }
+    ?>
+    <script src="/photogram/assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

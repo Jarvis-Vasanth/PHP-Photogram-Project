@@ -1,17 +1,17 @@
 <?php
 
 $signup = false;
-if(isset($_POST['username']) and isset($_POST['password']) and !empty($_POST['password']) and isset($_POST['email_address']) and isset($_POST['phone'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+//print_r($_POST);
+if(isset($_POST['username']) and isset($_POST['password']) and isset($_POST['email_address']) and isset($_POST['phone'])) {
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
     $email = $_POST['email_address'];
     $phone = $_POST['phone'];
-    $error = User::signup($username, $password, $email, $phone);
+    $error = User::signup($user, $pass, $email, $phone);
     $signup = true;
-
+	// echo "Hello";
 }
 ?>
-
 <?php
     if($signup) {
         if(!$error) {
@@ -19,7 +19,7 @@ if(isset($_POST['username']) and isset($_POST['password']) and !empty($_POST['pa
 <main class="container">
 	<div class="bg-light p-5 rounded mt-3">
 		<h1>signup Succees</h1>
-		<p class="lead">Now you can login from <a href="/login.php">here</a>.</p>
+		<p class="lead">Now you can login from <a href="/phottogram/login.php">here</a>.</p>
 	</div>
 </main>
 <?php
@@ -40,7 +40,7 @@ if(isset($_POST['username']) and isset($_POST['password']) and !empty($_POST['pa
 <main class="form-signup">
 
 	<form method="post" action="signup.php">
-		<img class="mb-4" src="https://portal.selfmade.ninja/files/Logo%20Dark.png" alt="" height="80">
+		<img class="mb-4" src="http://eecs.qmul.ac.uk/media/eecs/ioc/IoC_Logo_OnWhite_AW_large.jpg" alt="" height="80">
 		<h1 class="h3 mb-3 fw-normal">signup here</h1>
 
 		<div class="form-floating">
